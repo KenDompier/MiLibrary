@@ -26,6 +26,7 @@ namespace MediaLibraryGraphicalDesktopApplication
             AddMediaViewModel = new AddMediaViewModel();
         }
 
+
         public ObservableCollection<Media> SimpleMediaList { get; set; }
 
         private AddMediaViewModel _addmediaviewmodel;
@@ -62,7 +63,6 @@ namespace MediaLibraryGraphicalDesktopApplication
             LoadMedia();
         }
 
-
         internal void SaveMedia()
         {
             _dataService.SaveMediaToList(_medialist);
@@ -72,6 +72,30 @@ namespace MediaLibraryGraphicalDesktopApplication
         {
             _medialist.RemoveMediaFromList(removeItem);
         }
+
+        internal void SelectMedia(int selectedMedia)
+        {
+            _dataService.SaveMediaToList(_medialist);
+        }
+        internal void EditMedia(int removeItem)
+        {
+            // removes old version of media
+            _medialist.RemoveMediaFromList(removeItem);
+
+            // adds new one
+            Media mediaAttributes = new Media();
+            mediaAttributes.MediaTitle = AddMediaViewModel.MediaTitle;
+            mediaAttributes.MediaType = AddMediaViewModel.MediaType;
+            mediaAttributes.Finished = AddMediaViewModel.Finished;
+            mediaAttributes.StartDate = AddMediaViewModel.StartDate;
+            mediaAttributes.FinishDate = AddMediaViewModel.FinishDate;
+            mediaAttributes.Rating = AddMediaViewModel.Rating;
+
+
+            _medialist.AddMedia(mediaAttributes);
+            LoadMedia();
+        }
+
 
     }
 }

@@ -19,13 +19,11 @@ using LiveCharts.Wpf;
 
 namespace MediaLibraryGraphicalDesktopApplication
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        public MainViewModel ViewModel => (MainViewModel)this.DataContext;
 
+        // main view model
+        public MainViewModel ViewModel => (MainViewModel)this.DataContext;
 
         public MainWindow()
         {
@@ -37,7 +35,7 @@ namespace MediaLibraryGraphicalDesktopApplication
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Add_Button(object sender, RoutedEventArgs e)
         {
             AddMediaWindow mediaWindow = new AddMediaWindow();
             mediaWindow.MainViewModelHolder = ViewModel;
@@ -58,6 +56,36 @@ namespace MediaLibraryGraphicalDesktopApplication
             ViewModel.SaveMedia();
         }
 
+        private void Edit_Button(object sender, RoutedEventArgs e)
+        {
+            EditMediaWindow editWindow = new EditMediaWindow();
+            editWindow.MainViewModelHolder = ViewModel;
+            editWindow.DataContext = ViewModel.AddMediaViewModel;
+
+            // select the media class attributes 
+            Media selected = MediaList.SelectedItem as Media;
+
+            // gets the attributes
+            string editTitle = selected.MediaTitle;
+            string editType = selected.MediaType;
+            DateTime editSDate = selected.StartDate;
+            DateTime editFDate = selected.FinishDate;
+            string editRating = selected.Rating;
+
+            // change view model names to match the edited media
+            ViewModel.AddMediaViewModel.MediaTitle = editTitle;
+            ViewModel.AddMediaViewModel.MediaType = editType;
+            ViewModel.AddMediaViewModel.StartDate = editSDate;
+            ViewModel.AddMediaViewModel.FinishDate = editFDate;
+            ViewModel.AddMediaViewModel.Rating = editRating;
+
+            // remembers the index of the selected item 
+            editWindow.SelectedIndex = MediaList.SelectedIndex;
+
+            editWindow.Show();
+        }
+
+        // comparison charts
         private void Compare_Media_Button(object sender, RoutedEventArgs e)
         {
             var chartWindow = new Window();

@@ -15,20 +15,23 @@ using System.Windows.Shapes;
 
 namespace MediaLibraryGraphicalDesktopApplication
 {
-    public partial class AddMediaWindow : Window
+
+    public partial class EditMediaWindow : Window
     {
         public AddMediaViewModel ViewModel => (AddMediaViewModel)this.DataContext;
 
         public MainViewModel MainViewModelHolder { get; set; }
 
-        public AddMediaWindow()
+        public int SelectedIndex { get; set; }
+
+
+        public EditMediaWindow()
         {
             InitializeComponent();
         }
-
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            MainViewModelHolder.AddMedia();
+            MainViewModelHolder.EditMedia(SelectedIndex);
             // resets for next time window is opened
             ViewModel.MediaTitle = string.Empty;
             ViewModel.MediaType = string.Empty;
@@ -37,6 +40,6 @@ namespace MediaLibraryGraphicalDesktopApplication
             ViewModel.Finished = false;
             Close();
         }
+
     }
 }
-
