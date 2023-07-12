@@ -52,6 +52,7 @@ namespace MediaLibraryGraphicalDesktopApplication
         {
             Media mediaAttributes = new Media();
             mediaAttributes.MediaTitle = AddMediaViewModel.MediaTitle;
+            mediaAttributes.MediaAuthor = AddMediaViewModel.MediaAuthor;
             mediaAttributes.MediaType = AddMediaViewModel.MediaType;
             mediaAttributes.Finished = AddMediaViewModel.Finished;
             mediaAttributes.StartDate = AddMediaViewModel.StartDate;
@@ -85,6 +86,7 @@ namespace MediaLibraryGraphicalDesktopApplication
             // adds new one
             Media mediaAttributes = new Media();
             mediaAttributes.MediaTitle = AddMediaViewModel.MediaTitle;
+            mediaAttributes.MediaAuthor = AddMediaViewModel.MediaAuthor;
             mediaAttributes.MediaType = AddMediaViewModel.MediaType;
             mediaAttributes.Finished = AddMediaViewModel.Finished;
             mediaAttributes.StartDate = AddMediaViewModel.StartDate;

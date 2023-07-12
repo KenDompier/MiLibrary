@@ -34,6 +34,7 @@ namespace MediaLibraryGraphicalDesktopApplication
             MainViewModelHolder.EditMedia(SelectedIndex);
             // resets for next time window is opened
             ViewModel.MediaTitle = string.Empty;
+            ViewModel.MediaAuthor = string.Empty;
             ViewModel.MediaType = string.Empty;
             ViewModel.StartDate = DateTime.Now;
             ViewModel.FinishDate = DateTime.Now;

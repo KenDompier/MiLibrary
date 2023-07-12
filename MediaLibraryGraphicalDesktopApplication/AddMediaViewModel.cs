@@ -11,6 +11,7 @@ namespace MediaLibraryGraphicalDesktopApplication
         public AddMediaViewModel()
         {
             MediaTitle = "";
+            MediaAuthor = "";
             MediaType = "";
             StartDate = DateTime.Now;
             // if = true, then enable the finish date in the listbox
@@ -25,6 +26,13 @@ namespace MediaLibraryGraphicalDesktopApplication
         {
             get { return _mediaTitle; }
             set { _mediaTitle = value; }
+        }
+
+        private string _mediaAuthor;
+        public string MediaAuthor
+        {
+            get { return _mediaAuthor; }
+            set { _mediaAuthor = value; }
         }
 
         private string _mediaType;

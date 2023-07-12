@@ -67,6 +67,7 @@ namespace MediaLibraryGraphicalDesktopApplication
 
             // gets the attributes
             string editTitle = selected.MediaTitle;
+            string editAuthor = selected.MediaAuthor;
             string editType = selected.MediaType;
             DateTime editSDate = selected.StartDate;
             DateTime editFDate = selected.FinishDate;
@@ -74,6 +75,7 @@ namespace MediaLibraryGraphicalDesktopApplication
 
             // change view model names to match the edited media
             ViewModel.AddMediaViewModel.MediaTitle = editTitle;
+            ViewModel.AddMediaViewModel.MediaAuthor = editAuthor;
             ViewModel.AddMediaViewModel.MediaType = editType;
             ViewModel.AddMediaViewModel.StartDate = editSDate;
             ViewModel.AddMediaViewModel.FinishDate = editFDate;

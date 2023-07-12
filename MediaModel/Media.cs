@@ -4,6 +4,8 @@
     {
         public string MediaTitle { get; set; }
 
+        public string MediaAuthor { get; set; }
+
         // could be movie, music, book, ect. 
         public string MediaType { get; set; }
 
